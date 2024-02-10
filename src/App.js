@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import NavBar from './Components/NavBar'
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import HeroSection from './Components/HeroSection';
+import { Container } from '@mui/material';
+import ProfileCard from './Components/ProfileCard';
+import PricingSection from './Components/pricing';
 
-function App() {
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#ffffff',
+    },
+  },
+});
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+    <ThemeProvider theme={theme}>
+      <NavBar/>
+      </ThemeProvider>
+      <Container>
+      <HeroSection/>
+      </Container>
+      <ProfileCard/>
+      <Container>
+      <PricingSection/>
+      </Container>
+      <PricingSection/>
+    </>
+  )
 }
 
-export default App;
+export default App
